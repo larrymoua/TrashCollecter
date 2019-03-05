@@ -13,7 +13,7 @@ namespace TrashCanProject.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201903041536572_Customer"; }
+            get { return "201903041743059_Customer"; }
         }
         
         string IMigrationMetadata.Source

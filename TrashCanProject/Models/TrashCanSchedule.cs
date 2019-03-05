@@ -15,9 +15,11 @@ namespace TrashCanProject.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy h:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime PickUpDate { get; set; }
         public DateTime ExtraPickupDate { get; set; }
-        public int EmployeeId { get; set; }
+
         [Required]
-        [ForeignKey("EmployeeId")]
+        [ForeignKey("Customer")]
+        public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+        public ICollection<TrashCanSchedule> trashCanSchedules { get; set; }
     }
 }

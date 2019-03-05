@@ -12,5 +12,6 @@ namespace TrashCanProject.Models
         [Key]
         public int CustomerId { get; set; }
 
+
     }
 }

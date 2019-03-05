@@ -178,12 +178,13 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TrashCanScheduleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903041536572_Customer.cs" />
-    <Compile Include="Migrations\201903041536572_Customer.Designer.cs">
-      <DependentUpon>201903041536572_Customer.cs</DependentUpon>
+    <Compile Include="Migrations\201903041743059_Customer.cs" />
+    <Compile Include="Migrations\201903041743059_Customer.Designer.cs">
+      <DependentUpon>201903041743059_Customer.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -258,6 +259,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Customer\" />
     <Folder Include="Views\Employee\" />
+    <Folder Include="Views\TrashCanSchedule\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -273,8 +275,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903041536572_Customer.resx">
-      <DependentUpon>201903041536572_Customer.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903041743059_Customer.resx">
+      <DependentUpon>201903041743059_Customer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
