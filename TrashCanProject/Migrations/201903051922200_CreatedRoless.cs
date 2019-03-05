@@ -3,7 +3,7 @@ namespace TrashCanProject.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Customer : DbMigration
+    public partial class CreatedRoless : DbMigration
     {
         public override void Up()
         {

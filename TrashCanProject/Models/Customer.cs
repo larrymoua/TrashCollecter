@@ -9,9 +9,11 @@ namespace TrashCanProject.Models
 {
     public class Customer:User
     {
-        [Key]
-        public int CustomerId { get; set; }
+        [Key]   public int CustomerId { get; set; }
 
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser applicationUser { get; set; }
 
     }
 }

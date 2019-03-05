@@ -179,12 +179,17 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TrashCanScheduleController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903041743059_Customer.cs" />
-    <Compile Include="Migrations\201903041743059_Customer.Designer.cs">
-      <DependentUpon>201903041743059_Customer.cs</DependentUpon>
+    <Compile Include="Migrations\201903051900269_CreatedRoles.cs" />
+    <Compile Include="Migrations\201903051900269_CreatedRoles.Designer.cs">
+      <DependentUpon>201903051900269_CreatedRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903051922200_CreatedRoless.cs" />
+    <Compile Include="Migrations\201903051922200_CreatedRoless.Designer.cs">
+      <DependentUpon>201903051922200_CreatedRoless.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -254,6 +259,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\View.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -275,8 +281,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903041743059_Customer.resx">
-      <DependentUpon>201903041743059_Customer.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903051900269_CreatedRoles.resx">
+      <DependentUpon>201903051900269_CreatedRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903051922200_CreatedRoless.resx">
+      <DependentUpon>201903051922200_CreatedRoless.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
