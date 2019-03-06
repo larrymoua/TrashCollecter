@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<TrashCanProject.Models.TrashCanSchedule>
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "TrashCan Pickup Dates/Times";
 }
 
-<h2>View</h2>
+<h2>Trash Can Schedules</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,13 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Customer.ApplicationUserId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.PickUpDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ExtraPickupDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerId)
         </th>
         <th></th>
     </tr>
@@ -26,13 +26,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Customer.ApplicationUserId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.PickUpDate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ExtraPickupDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerId)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

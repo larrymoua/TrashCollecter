@@ -74,12 +74,13 @@ namespace TrashCanProject.Controllers
             {
                 return View(model);
             }
-
+           
             // This doesn't count login failures towards account lockout   
             // To enable password failures to trigger account lockout, change to shouldLockout: true   
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
+                
                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
@@ -141,19 +142,19 @@ namespace TrashCanProject.Controllers
                     //Ends Here 
                     if (model.UserRoles == "Employee")
                     {               
-                        var employee = new Employee { ApplicationUserId = user.Id };
+                        var employee = new Employee { ApplicationUserId = user.Id , FirstName = model.FirstName, LastName = model.LastName, Address = model.Address, State = model.State, ZipCode = model.ZipCode};
                         context.employees.Add(employee);
                         context.SaveChanges();
                          
-                    return RedirectToAction("Index", "Employee");
+                    return RedirectToAction("TrashCanSchedules", "Employee");
                     }
                     else if (model.UserRoles == "Customer")
                     {
-                        var customer = new Customer { ApplicationUserId = user.Id };
+                        var customer = new Customer { ApplicationUserId = user.Id, FirstName = model.FirstName, LastName = model.LastName, Address = model.Address, State = model.State, ZipCode = model.ZipCode };
                         context.customers.Add(customer);
                         context.SaveChanges();
 
-                        return RedirectToAction("Index", "Customer");
+                        return RedirectToAction("TrashCanSchedules", "Customer");
                     }
           
                 }
@@ -438,9 +439,16 @@ namespace TrashCanProject.Controllers
 
         private ActionResult RedirectToLocal(string returnUrl)
         {
-            if (Url.IsLocalUrl(returnUrl))
+            var CurrentUser = User.Identity.GetUserId();
+
+
+            if (CurrentUser == "Employee")
             {
-                return Redirect(returnUrl);
+
+            }
+            else if (CurrentUser == "Customer")
+            {
+
             }
             return RedirectToAction("Index", "Home");
         }

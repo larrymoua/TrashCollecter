@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TrashCanProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TrashCanProject.Controllers
 {
@@ -15,10 +16,10 @@ namespace TrashCanProject.Controllers
         {
             context = new ApplicationDbContext();
         }
-        public ActionResult Index(int zipcode)
+        public ActionResult CustomerTrashCanSchedule(int id)
         {
-            //var listOfPicups = context.trashCanSchedules()
-            return View();
+            var customersPickUpSchedule = context.trashCanSchedules.Where(s => s.CustomerId == id).ToList();
+            return View(customersPickUpSchedule);
         }
 
         // GET: Customer/Details/5

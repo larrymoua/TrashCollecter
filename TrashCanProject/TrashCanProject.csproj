@@ -183,17 +183,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903051900269_CreatedRoles.cs" />
-    <Compile Include="Migrations\201903051900269_CreatedRoles.Designer.cs">
-      <DependentUpon>201903051900269_CreatedRoles.cs</DependentUpon>
+    <Compile Include="Migrations\201903061648538_IntialMigration.cs" />
+    <Compile Include="Migrations\201903061648538_IntialMigration.Designer.cs">
+      <DependentUpon>201903061648538_IntialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903051922200_CreatedRoless.cs" />
-    <Compile Include="Migrations\201903051922200_CreatedRoless.Designer.cs">
-      <DependentUpon>201903051922200_CreatedRoless.cs</DependentUpon>
+    <Compile Include="Migrations\201903061726392_removelistfromTrashCan.cs" />
+    <Compile Include="Migrations\201903061726392_removelistfromTrashCan.Designer.cs">
+      <DependentUpon>201903061726392_removelistfromTrashCan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903052020403_applicationusers.cs" />
-    <Compile Include="Migrations\201903052020403_applicationusers.Designer.cs">
-      <DependentUpon>201903052020403_applicationusers.cs</DependentUpon>
+    <Compile Include="Migrations\201903061851270_test.cs" />
+    <Compile Include="Migrations\201903061851270_test.Designer.cs">
+      <DependentUpon>201903061851270_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -201,7 +201,6 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\StatesList.cs" />
     <Compile Include="Models\TrashCanSchedule.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -267,11 +266,12 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutEmployee.cshtml" />
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
-    <Content Include="Views\Customer\View.cshtml" />
+    <Content Include="Views\Employee\TrashCanSchedules.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Customer\CustomerTrashCanSchedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Employee\" />
     <Folder Include="Views\TrashCanSchedule\" />
   </ItemGroup>
   <ItemGroup>
@@ -288,14 +288,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903051900269_CreatedRoles.resx">
-      <DependentUpon>201903051900269_CreatedRoles.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903061648538_IntialMigration.resx">
+      <DependentUpon>201903061648538_IntialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903051922200_CreatedRoless.resx">
-      <DependentUpon>201903051922200_CreatedRoless.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903061726392_removelistfromTrashCan.resx">
+      <DependentUpon>201903061726392_removelistfromTrashCan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903052020403_applicationusers.resx">
-      <DependentUpon>201903052020403_applicationusers.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903061851270_test.resx">
+      <DependentUpon>201903061851270_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

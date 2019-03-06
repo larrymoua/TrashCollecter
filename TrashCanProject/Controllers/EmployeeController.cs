@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TrashCanProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TrashCanProject.Controllers
 {
@@ -15,18 +16,17 @@ namespace TrashCanProject.Controllers
             context = new ApplicationDbContext();
         } 
         // GET: Employee
-        public ActionResult Index(Employee employee)
+        public ActionResult TrashCanSchedules()
         {
-            if(employee.FirstName == null)
-            {
-                return View("Edit");
-            }
-            return View();
+            return View(context.trashCanSchedules.Select(t => t));
         }
 
         // GET: Employee/Details/5
         public ActionResult Details(int id)
         {
+            var CurrentUser = User.Identity;
+          
+
             return View();
         }
 
@@ -55,7 +55,7 @@ namespace TrashCanProject.Controllers
         // GET: Employee/Edit/5
         public ActionResult Edit(int id)
         {
-            var findEmployee = context.employees.Select(e => e.EmployeeId == id);
+            Employee findEmployee = context.employees.Where(e => e.EmployeeId == id).SingleOrDefault();
             return View(findEmployee);
         }
 
@@ -70,10 +70,9 @@ namespace TrashCanProject.Controllers
                 updateEmployee.FirstName = employee.FirstName;
                 updateEmployee.LastName = employee.LastName;
                 updateEmployee.Address = employee.Address;
-                updateEmployee.State = employee.Address;
                 updateEmployee.ZipCode = employee.Address;
-
-                return RedirectToAction("Index");
+                context.SaveChanges();
+                return RedirectToAction("TrashCanSchedules");
             }
             catch
             {

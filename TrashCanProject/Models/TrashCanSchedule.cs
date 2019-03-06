@@ -20,6 +20,6 @@ namespace TrashCanProject.Models
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
-        public ICollection<TrashCanSchedule> trashCanSchedules { get; set; }
+      
     }
 }

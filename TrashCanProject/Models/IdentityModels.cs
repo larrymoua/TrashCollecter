@@ -32,5 +32,7 @@ namespace TrashCanProject.Models
         public DbSet<Employee> employees { get; set; }
         public DbSet<Customer> customers { get; set; }
         public DbSet<TrashCanSchedule> trashCanSchedules {get;set;}
+
+
     }
 }

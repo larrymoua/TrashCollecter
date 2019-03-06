@@ -7,13 +7,13 @@ namespace TrashCanProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CreatedRoles : IMigrationMetadata
+    public sealed partial class removelistfromTrashCan : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreatedRoles));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(removelistfromTrashCan));
         
         string IMigrationMetadata.Id
         {
-            get { return "201903051900269_CreatedRoles"; }
+            get { return "201903061726392_removelistfromTrashCan"; }
         }
         
         string IMigrationMetadata.Source
