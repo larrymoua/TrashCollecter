@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TrashCanProject.Models;
 
 namespace TrashCanProject.Controllers
 {
     public class CustomerController : Controller
     {
+        private ApplicationDbContext context;
         // GET: Customer
-        public ActionResult Index()
+        public CustomerController()
         {
+            context = new ApplicationDbContext();
+        }
+        public ActionResult Index(int zipcode)
+        {
+            //var listOfPicups = context.trashCanSchedules()
             return View();
         }
 

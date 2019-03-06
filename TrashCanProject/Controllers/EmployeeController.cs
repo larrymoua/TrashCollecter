@@ -3,14 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TrashCanProject.Models;
 
 namespace TrashCanProject.Controllers
 {
     public class EmployeeController : Controller
     {
-        // GET: Employee
-        public ActionResult Index()
+        ApplicationDbContext context;
+        public EmployeeController()
         {
+            context = new ApplicationDbContext();
+        } 
+        // GET: Employee
+        public ActionResult Index(Employee employee)
+        {
+            if(employee.FirstName == null)
+            {
+                return View("Edit");
+            }
             return View();
         }
 
@@ -45,16 +55,23 @@ namespace TrashCanProject.Controllers
         // GET: Employee/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var findEmployee = context.employees.Select(e => e.EmployeeId == id);
+            return View(findEmployee);
         }
 
         // POST: Employee/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Employee employee)
         {
+          
             try
             {
-                // TODO: Add update logic here
+                var updateEmployee = context.employees.Where(e => e.EmployeeId == employee.EmployeeId).FirstOrDefault();
+                updateEmployee.FirstName = employee.FirstName;
+                updateEmployee.LastName = employee.LastName;
+                updateEmployee.Address = employee.Address;
+                updateEmployee.State = employee.Address;
+                updateEmployee.ZipCode = employee.Address;
 
                 return RedirectToAction("Index");
             }

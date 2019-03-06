@@ -125,6 +125,7 @@ namespace TrashCanProject.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -137,12 +138,29 @@ namespace TrashCanProject.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");   
                     //Assign Role to user Here      
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
-                    //Ends Here    
-                    return RedirectToAction("Index", "Users");
+                    //Ends Here 
+                    if (model.UserRoles == "Employee")
+                    {               
+                        var employee = new Employee { ApplicationUserId = user.Id };
+                        context.employees.Add(employee);
+                        context.SaveChanges();
+                         
+                    return RedirectToAction("Index", "Employee");
+                    }
+                    else if (model.UserRoles == "Customer")
+                    {
+                        var customer = new Customer { ApplicationUserId = user.Id };
+                        context.customers.Add(customer);
+                        context.SaveChanges();
+
+                        return RedirectToAction("Index", "Customer");
+                    }
+          
                 }
                 ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
                 AddErrors(result);
             }
+
 
             // If we got this far, something failed, redisplay form   
             return View(model);

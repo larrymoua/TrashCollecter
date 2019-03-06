@@ -12,6 +12,7 @@ namespace TrashCanProject.Controllers
     public class UsersController : Controller
     {
         // GET: Users
+        [Authorize]
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)

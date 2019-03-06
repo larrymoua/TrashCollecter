@@ -14,6 +14,6 @@ namespace TrashCanProject.Models
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationUserId { get; set; }
-        public ApplicationUser applicationUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

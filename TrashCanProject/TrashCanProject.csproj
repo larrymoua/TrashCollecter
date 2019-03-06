@@ -191,12 +191,17 @@
     <Compile Include="Migrations\201903051922200_CreatedRoless.Designer.cs">
       <DependentUpon>201903051922200_CreatedRoless.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903052020403_applicationusers.cs" />
+    <Compile Include="Migrations\201903052020403_applicationusers.Designer.cs">
+      <DependentUpon>201903052020403_applicationusers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\StatesList.cs" />
     <Compile Include="Models\TrashCanSchedule.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -260,10 +265,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\View.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutEmployee.cshtml" />
+    <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
+    <Content Include="Views\Customer\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Customer\" />
     <Folder Include="Views\Employee\" />
     <Folder Include="Views\TrashCanSchedule\" />
   </ItemGroup>
@@ -286,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903051922200_CreatedRoless.resx">
       <DependentUpon>201903051922200_CreatedRoless.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903052020403_applicationusers.resx">
+      <DependentUpon>201903052020403_applicationusers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
