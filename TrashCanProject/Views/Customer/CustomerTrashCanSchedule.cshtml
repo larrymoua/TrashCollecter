@@ -24,30 +24,48 @@
         <th>
             @Html.DisplayNameFor(model => model.Confirmed)
         </th>
+        <td>
+            @Html.DisplayNameFor(model => model.Cost)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.StartSuspend)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.EndSuspend)
+        </td>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
+    <tr>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.pickUpDays)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExtraPickupDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ZipCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Confirmed)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |            
-            </td>
-        </tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.pickUpDays)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExtraPickupDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Confirmed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartSuspend)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndSuspend)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        </td>
+    </tr>
     }
 
 </table>

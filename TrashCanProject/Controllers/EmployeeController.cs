@@ -27,10 +27,10 @@ namespace TrashCanProject.Controllers
         // GET: Employee/Details/5
         public ActionResult Details(int id)
         {
-            var CurrentUser = User.Identity;
-          
+            var schedule = context.trashCanSchedules.Find(id);
+            var customerFound = context.customers.Where(e => e.CustomerId == schedule.CustomerId).SingleOrDefault();
 
-            return View();
+            return View(customerFound);
         }
 
         // GET: Employee/Create

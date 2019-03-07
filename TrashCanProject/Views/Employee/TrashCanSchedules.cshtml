@@ -25,6 +25,12 @@
         <td>
             @Html.DisplayNameFor(model => model.Cost)
         </td>
+        <td>
+            @Html.DisplayNameFor(model => model.StartSuspend)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.EndSuspend)
+        </td>
 
         <th></th>
     </tr>
@@ -45,6 +51,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartSuspend)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndSuspend)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |

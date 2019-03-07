@@ -158,7 +158,7 @@ namespace TrashCanProject.Controllers
                         var CurrentUser = User.Identity.GetUserId();
 
                         var customerFound = context.customers.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
-                        return RedirectToAction("CustomerTrashCanSchedule", "Customer");
+                        return RedirectToAction("CustomerTrashCanSchedule", "Customer", new { id = customerFound.CustomerId });
                     }
           
                 }

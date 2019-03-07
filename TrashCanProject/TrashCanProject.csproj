@@ -223,6 +223,18 @@
     <Compile Include="Migrations\201903071957315_AddedCostAttribute.Designer.cs">
       <DependentUpon>201903071957315_AddedCostAttribute.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903072020501_AddSuspend.cs" />
+    <Compile Include="Migrations\201903072020501_AddSuspend.Designer.cs">
+      <DependentUpon>201903072020501_AddSuspend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903072120586_costIsdouble.cs" />
+    <Compile Include="Migrations\201903072120586_costIsdouble.Designer.cs">
+      <DependentUpon>201903072120586_costIsdouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903072126015_test2.cs" />
+    <Compile Include="Migrations\201903072126015_test2.Designer.cs">
+      <DependentUpon>201903072126015_test2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -299,6 +311,8 @@
     <Content Include="Views\Customer\CustomerTrashCanSchedule.cshtml" />
     <Content Include="Views\Employee\TrashCanSchedules.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Customer\Billing.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -347,6 +361,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903071957315_AddedCostAttribute.resx">
       <DependentUpon>201903071957315_AddedCostAttribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903072020501_AddSuspend.resx">
+      <DependentUpon>201903072020501_AddSuspend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903072120586_costIsdouble.resx">
+      <DependentUpon>201903072120586_costIsdouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903072126015_test2.resx">
+      <DependentUpon>201903072126015_test2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

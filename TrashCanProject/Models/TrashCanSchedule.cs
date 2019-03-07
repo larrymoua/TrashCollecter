@@ -20,7 +20,12 @@ namespace TrashCanProject.Models
         public int ZipCode { get; set; }
         public bool Confirmed { get; set; }
 
-        public string Cost { get; set; }
+        public double? Cost { get; set; }
+
+        [Display(Name = "Start Date Suspension")]
+        public DateTime? StartSuspend { get; set; }
+        [Display(Name = "End Date Suspension")]
+        public DateTime? EndSuspend { get; set; }
 
         [Required]
         [ForeignKey("Customer")]

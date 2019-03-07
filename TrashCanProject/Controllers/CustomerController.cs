@@ -25,6 +25,9 @@ namespace TrashCanProject.Controllers
         // GET: Customer/Details/5
         public ActionResult Details(int id)
         {
+
+
+
             return View();
         }
 
@@ -69,12 +72,14 @@ namespace TrashCanProject.Controllers
                  //   new SelectListItem { Text = "Homeowner", Value = ((int)UserType.Homeowner).ToString()},
                  //   new SelectListItem { Text = "Contractor", Value = ((int)UserType.Contractor).ToString()},
                  //}, "Value", "Text");
-                updateTrashCanScheduel.pickUpDays = trashCanSchedule.pickUpDays;
-                updateTrashCanScheduel.ExtraPickupDate = trashCanSchedule.ExtraPickupDate;
-                updateTrashCanScheduel.ZipCode = trashCanSchedule.ZipCode;
-                context.SaveChanges();
+            updateTrashCanScheduel.pickUpDays = trashCanSchedule.pickUpDays;
+            updateTrashCanScheduel.ExtraPickupDate = trashCanSchedule.ExtraPickupDate;
+            updateTrashCanScheduel.ZipCode = trashCanSchedule.ZipCode;
+            updateTrashCanScheduel.StartSuspend = trashCanSchedule.StartSuspend;
+            updateTrashCanScheduel.EndSuspend = trashCanSchedule.EndSuspend;
+            context.SaveChanges();
 
-                return RedirectToAction("CustomerTrashCanSchedule", new { id = updateTrashCanScheduel.CustomerId});
+            return RedirectToAction("CustomerTrashCanSchedule", new { id = updateTrashCanScheduel.CustomerId});
 
         }
 
@@ -99,5 +104,18 @@ namespace TrashCanProject.Controllers
                 return View();
             }
         }
+        [HttpGet]
+        public ActionResult Billing()
+        {
+            var CurrentUser = User.Identity.GetUserId();
+            var customerFound = context.customers.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
+
+            var trashCanSchedule = context.trashCanSchedules.Where(t => t.CustomerId == customerFound.CustomerId).Sum(c => c.Cost);
+
+            ViewBag.Message = $"$ {trashCanSchedule}";
+
+            return View();
+        }
+        
     }
 }
