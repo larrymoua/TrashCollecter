@@ -439,17 +439,7 @@ namespace TrashCanProject.Controllers
 
         private ActionResult RedirectToLocal(string returnUrl)
         {
-            var CurrentUser = User.Identity.GetUserId();
 
-
-            if (CurrentUser == "Employee")
-            {
-
-            }
-            else if (CurrentUser == "Customer")
-            {
-
-            }
             return RedirectToAction("Index", "Home");
         }
 

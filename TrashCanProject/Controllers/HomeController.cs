@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using TrashCanProject.Models;
 
 namespace TrashCanProject.Controllers
@@ -17,13 +18,19 @@ namespace TrashCanProject.Controllers
         }
         public ActionResult Index()
         {
-            var ID = User.Identity.GetUserId();
-            var foundUser = context.Users.Where(u => u.Id == ID).SingleOrDefault();
-            //var findRole = context.Role
-            ////if(context.Roles)
-            //{
+            var CurrentUser = User.Identity.GetUserId();
 
-            //}
+            if (User.IsInRole("Employee"))
+            {
+                var employeeFound = context.employees.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
+                return RedirectToAction("TrashCanSchedules", "Employee", new { id = employeeFound.EmployeeId});
+            }
+            else if (User.IsInRole("Customer"))
+            {
+                var customerFound = context.customers.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();     
+                return RedirectToAction("CustomerTrashCanSchedule", "Customer", new { id = customerFound.CustomerId });
+            }
+
             return View();
         }
 

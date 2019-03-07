@@ -11,10 +11,14 @@ namespace TrashCanProject.Models
     {
         [Key]
         public int ID { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy h:mm tt}", ApplyFormatInEditMode = true)]
-        public DateTime PickUpDate { get; set; }
+        [Display(Name = "Pick Up Day")]
+        public PickUpDays pickUpDays { get; set; }
+
+        [Display(Name = "Extra Pick Up Date")]
         public DateTime ExtraPickupDate { get; set; }
+        [Display(Name = "Zip Code")]
+        public int ZipCode { get; set; }
+        public bool Confirmed { get; set; }
 
         [Required]
         [ForeignKey("Customer")]

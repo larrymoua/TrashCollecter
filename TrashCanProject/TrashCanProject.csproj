@@ -195,12 +195,33 @@
     <Compile Include="Migrations\201903061851270_test.Designer.cs">
       <DependentUpon>201903061851270_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903071557580_updatedDisplayed.cs" />
+    <Compile Include="Migrations\201903071557580_updatedDisplayed.Designer.cs">
+      <DependentUpon>201903071557580_updatedDisplayed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903071559371_addedConfirmed.cs" />
+    <Compile Include="Migrations\201903071559371_addedConfirmed.Designer.cs">
+      <DependentUpon>201903071559371_addedConfirmed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903071630403_datadisplau.cs" />
+    <Compile Include="Migrations\201903071630403_datadisplau.Designer.cs">
+      <DependentUpon>201903071630403_datadisplau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903071641377_PickupDay.cs" />
+    <Compile Include="Migrations\201903071641377_PickupDay.Designer.cs">
+      <DependentUpon>201903071641377_PickupDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903071717111_test1.cs" />
+    <Compile Include="Migrations\201903071717111_test1.Designer.cs">
+      <DependentUpon>201903071717111_test1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PickUpDays.cs" />
     <Compile Include="Models\TrashCanSchedule.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -268,6 +289,7 @@
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
     <Content Include="Views\Employee\TrashCanSchedules.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\CustomerTrashCanSchedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -296,6 +318,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903061851270_test.resx">
       <DependentUpon>201903061851270_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903071557580_updatedDisplayed.resx">
+      <DependentUpon>201903071557580_updatedDisplayed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903071559371_addedConfirmed.resx">
+      <DependentUpon>201903071559371_addedConfirmed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903071630403_datadisplau.resx">
+      <DependentUpon>201903071630403_datadisplau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903071641377_PickupDay.resx">
+      <DependentUpon>201903071641377_PickupDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903071717111_test1.resx">
+      <DependentUpon>201903071717111_test1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

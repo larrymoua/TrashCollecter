@@ -53,23 +53,29 @@ namespace TrashCanProject.Controllers
         // GET: Customer/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var schedule = context.trashCanSchedules.Find(id);
+            return View(schedule);
         }
 
         // POST: Customer/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, TrashCanSchedule trashCanSchedule)
         {
-            try
-            {
-                // TODO: Add update logic here
+  
+                var updateTrashCanScheduel = context.trashCanSchedules.Where(t => t.ID == id).FirstOrDefault();
+                 //u.UserTypeOptions = new SelectList(
+                 //new List<SelectListItem>
+                 //{
+                 //   new SelectListItem { Text = "Homeowner", Value = ((int)UserType.Homeowner).ToString()},
+                 //   new SelectListItem { Text = "Contractor", Value = ((int)UserType.Contractor).ToString()},
+                 //}, "Value", "Text");
+                updateTrashCanScheduel.pickUpDays = trashCanSchedule.pickUpDays;
+                updateTrashCanScheduel.ExtraPickupDate = trashCanSchedule.ExtraPickupDate;
+                updateTrashCanScheduel.ZipCode = trashCanSchedule.ZipCode;
+                context.SaveChanges();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+                return RedirectToAction("CustomerTrashCanSchedule", new { id = updateTrashCanScheduel.CustomerId});
+
         }
 
         // GET: Customer/Delete/5
