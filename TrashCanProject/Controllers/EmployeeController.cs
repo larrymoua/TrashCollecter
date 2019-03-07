@@ -18,7 +18,10 @@ namespace TrashCanProject.Controllers
         // GET: Employee
         public ActionResult TrashCanSchedules()
         {
-            return View(context.trashCanSchedules.Select(t => t));
+            var CurrentUser = User.Identity.GetUserId();
+            var employeeFound = context.employees.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
+
+            return View(context.trashCanSchedules.Where(t => t.ZipCode == employeeFound.ZipCode));
         }
 
         // GET: Employee/Details/5
@@ -55,22 +58,25 @@ namespace TrashCanProject.Controllers
         // GET: Employee/Edit/5
         public ActionResult Edit(int id)
         {
-            Employee findEmployee = context.employees.Where(e => e.EmployeeId == id).SingleOrDefault();
-            return View(findEmployee);
+            var schedule = context.trashCanSchedules.Find(id);
+            return View(schedule);
         }
 
         // POST: Employee/Edit/5
         [HttpPost]
-        public ActionResult Edit(Employee employee)
+        public ActionResult Edit(int id, TrashCanSchedule trashCanSchedule)
         {
-          
+            //var updateEmployee = context.employees.Where(e => e.EmployeeId == employee.EmployeeId).FirstOrDefault();
+            //updateEmployee.FirstName = employee.FirstName;
+            //updateEmployee.LastName = employee.LastName;
+            //updateEmployee.Address = employee.Address;
+            //updateEmployee.ZipCode = employee.ZipCode;
+            //context.SaveChanges();
             try
             {
-                var updateEmployee = context.employees.Where(e => e.EmployeeId == employee.EmployeeId).FirstOrDefault();
-                updateEmployee.FirstName = employee.FirstName;
-                updateEmployee.LastName = employee.LastName;
-                updateEmployee.Address = employee.Address;
-                updateEmployee.ZipCode = employee.Address;
+                var updateTrashCanScheduel = context.trashCanSchedules.Where(t => t.ID == id).FirstOrDefault();
+                updateTrashCanScheduel.Confirmed = trashCanSchedule.Confirmed;
+                updateTrashCanScheduel.Cost = trashCanSchedule.Cost;
                 context.SaveChanges();
                 return RedirectToAction("TrashCanSchedules");
             }

@@ -20,6 +20,8 @@ namespace TrashCanProject.Models
         public int ZipCode { get; set; }
         public bool Confirmed { get; set; }
 
+        public string Cost { get; set; }
+
         [Required]
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }

@@ -215,6 +215,14 @@
     <Compile Include="Migrations\201903071717111_test1.Designer.cs">
       <DependentUpon>201903071717111_test1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903071753145_changezipcodetoInt.cs" />
+    <Compile Include="Migrations\201903071753145_changezipcodetoInt.Designer.cs">
+      <DependentUpon>201903071753145_changezipcodetoInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903071957315_AddedCostAttribute.cs" />
+    <Compile Include="Migrations\201903071957315_AddedCostAttribute.Designer.cs">
+      <DependentUpon>201903071957315_AddedCostAttribute.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -287,10 +295,10 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutEmployee.cshtml" />
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
-    <Content Include="Views\Employee\TrashCanSchedules.cshtml" />
-    <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\CustomerTrashCanSchedule.cshtml" />
+    <Content Include="Views\Employee\TrashCanSchedules.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -333,6 +341,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903071717111_test1.resx">
       <DependentUpon>201903071717111_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903071753145_changezipcodetoInt.resx">
+      <DependentUpon>201903071753145_changezipcodetoInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903071957315_AddedCostAttribute.resx">
+      <DependentUpon>201903071957315_AddedCostAttribute.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

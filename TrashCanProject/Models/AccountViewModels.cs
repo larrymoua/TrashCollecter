@@ -80,7 +80,7 @@ namespace TrashCanProject.Models
         [Required]
         public string State { get; set; }
         [Required]
-        public string ZipCode { get; set; }
+        public int ZipCode { get; set; }
 
 
         [Required]

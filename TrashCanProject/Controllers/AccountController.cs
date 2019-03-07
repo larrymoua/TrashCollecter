@@ -145,16 +145,20 @@ namespace TrashCanProject.Controllers
                         var employee = new Employee { ApplicationUserId = user.Id , FirstName = model.FirstName, LastName = model.LastName, Address = model.Address, State = model.State, ZipCode = model.ZipCode};
                         context.employees.Add(employee);
                         context.SaveChanges();
-                         
-                    return RedirectToAction("TrashCanSchedules", "Employee");
-                    }
+                        var CurrentUser = User.Identity.GetUserId();
+
+                        var employeeFound = context.employees.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
+                        return RedirectToAction("TrashCanSchedules", "Employee", new { id = employeeFound.EmployeeId });
+                        }
                     else if (model.UserRoles == "Customer")
                     {
                         var customer = new Customer { ApplicationUserId = user.Id, FirstName = model.FirstName, LastName = model.LastName, Address = model.Address, State = model.State, ZipCode = model.ZipCode };
                         context.customers.Add(customer);
                         context.SaveChanges();
+                        var CurrentUser = User.Identity.GetUserId();
 
-                        return RedirectToAction("TrashCanSchedules", "Customer");
+                        var customerFound = context.customers.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
+                        return RedirectToAction("CustomerTrashCanSchedule", "Customer");
                     }
           
                 }
