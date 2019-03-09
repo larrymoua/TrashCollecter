@@ -313,6 +313,7 @@
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Customer\Billing.cshtml" />
     <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

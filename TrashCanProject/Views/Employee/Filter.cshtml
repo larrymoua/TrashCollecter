@@ -1,19 +1,16 @@
 ﻿@model IEnumerable<TrashCanProject.Models.TrashCanSchedule>
 
 @{
-    ViewBag.Title = "TrashCanSchedules";
+    ViewBag.Title = "Filter";
 }
 
-<h2>Customer Pick Up Days</h2>
+<h2>Today's Pickup</h2>
 
 <p>
-    @Html.ActionLink("Filter, Today's Pickups", "Filter")
+  
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.pickUpDays)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.ExtraPickupDate)
         </th>
@@ -23,24 +20,20 @@
         <th>
             @Html.DisplayNameFor(model => model.Confirmed)
         </th>
-        <td>
+        <th>
             @Html.DisplayNameFor(model => model.Cost)
-        </td>
-        <td>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.StartSuspend)
-        </td>
-        <td>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.EndSuspend)
-        </td>
-
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.pickUpDays)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.ExtraPickupDate)
         </td>
@@ -60,8 +53,8 @@
             @Html.DisplayFor(modelItem => item.EndSuspend)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
         </td>
     </tr>
 }

@@ -23,6 +23,17 @@ namespace TrashCanProject.Controllers
 
             return View(context.trashCanSchedules.Where(t => t.ZipCode == employeeFound.ZipCode));
         }
+        public ActionResult Filter()
+        {
+            string dayofweek = System.DateTime.Now.DayOfWeek.ToString();
+
+            var CurrentUser = User.Identity.GetUserId();
+            var employeeFound = context.employees.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
+            var schedules = context.trashCanSchedules.Where(t => t.ZipCode == employeeFound.ZipCode);
+            var filteredSchedules = context.trashCanSchedules.Where(t => t.pickUpDays.ToString() == dayofweek).ToList();
+
+            return View(filteredSchedules);
+        }
 
         // GET: Employee/Details/5
         public ActionResult Details(int id)
@@ -107,5 +118,6 @@ namespace TrashCanProject.Controllers
                 return View();
             }
         }
+
     }
 }

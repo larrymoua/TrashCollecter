@@ -11,6 +11,8 @@ namespace TrashCanProject.Models
         Tuesday,
         Wednesday,
         Thursday,
-        Friday
+        Friday,
+        Saturday,
+        Sunday
     }
 }
