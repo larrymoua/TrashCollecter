@@ -30,7 +30,7 @@ namespace TrashCanProject.Controllers
             var CurrentUser = User.Identity.GetUserId();
             var employeeFound = context.employees.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
             var schedules = context.trashCanSchedules.Where(t => t.ZipCode == employeeFound.ZipCode);
-            var filteredSchedules = context.trashCanSchedules.Where(t => t.pickUpDays.ToString() == dayofweek).ToList();
+            var filteredSchedules = context.trashCanSchedules.Where(t => t.pickUpDays.ToString() == dayofweek && t.ZipCode == employeeFound.ZipCode).ToList();
 
             return View(filteredSchedules);
         }
