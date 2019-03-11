@@ -16,21 +16,29 @@ namespace TrashCanProject.Controllers
             context = new ApplicationDbContext();
         } 
         // GET: Employee
-        public ActionResult TrashCanSchedules()
+        public ActionResult TrashCanSchedules(string id)
         {
             var CurrentUser = User.Identity.GetUserId();
             var employeeFound = context.employees.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
+            var typeList = Enum.GetValues(typeof(PickUpDays))
+                .Cast<PickUpDays>()
+                .Select(t => new AcessClass
+                {
+                    pickUpDays = ((PickUpDays)t),
+
+                });
+            ViewBag.ListData = typeList;
 
             return View(context.trashCanSchedules.Where(t => t.ZipCode == employeeFound.ZipCode));
         }
-        public ActionResult Filter()
+        public ActionResult Filter(string id)
         {
             string dayofweek = System.DateTime.Now.DayOfWeek.ToString();
 
             var CurrentUser = User.Identity.GetUserId();
             var employeeFound = context.employees.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
             var schedules = context.trashCanSchedules.Where(t => t.ZipCode == employeeFound.ZipCode);
-            var filteredSchedules = context.trashCanSchedules.Where(t => t.pickUpDays.ToString() == dayofweek && t.ZipCode == employeeFound.ZipCode).ToList();
+            var filteredSchedules = context.trashCanSchedules.Where(t => t.pickUpDays.ToString() == id && t.ZipCode == employeeFound.ZipCode).ToList();
 
             return View(filteredSchedules);
         }

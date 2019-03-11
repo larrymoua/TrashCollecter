@@ -15,4 +15,8 @@ namespace TrashCanProject.Models
         Saturday,
         Sunday
     }
+    public class AcessClass
+    {
+        public PickUpDays pickUpDays { get; set; }
+    }
 }

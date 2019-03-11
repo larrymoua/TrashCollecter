@@ -7,7 +7,24 @@
 <h2>Customer Pick Up Days</h2>
 
 <p>
-    @Html.ActionLink("Filter, Today's Pickups", "Filter")
+    @*@Html.DropDownList("ListName", new SelectList(ViewBag.ListData, "PickUpDays", "pickUpDays"), new { @id = "ListName" })
+    @Html.ActionLink("Filter", "Filter", new { id = "Monday" })*@
+
+    @using (Html.BeginForm("Filter", "Employee"))
+    {
+        <table>
+            <tr>
+                <td>
+                    @Html.DropDownList("id", new SelectList(ViewBag.ListData, "PickUpDays","pickUpDays"))
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Filter">
+                </td>
+            </tr>
+        </table>
+    }
 </p>
 <table class="table">
     <tr>
@@ -26,44 +43,33 @@
         <td>
             @Html.DisplayNameFor(model => model.Cost)
         </td>
-        <td>
-            @Html.DisplayNameFor(model => model.StartSuspend)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.EndSuspend)
-        </td>
 
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.pickUpDays)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExtraPickupDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ZipCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Confirmed)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartSuspend)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndSuspend)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pickUpDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExtraPickupDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Confirmed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            </td>
+        </tr>
+    }
 
 </table>

@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
+using System.Web.Mvc;
+using System.Web.Mvc.Html;
 
 namespace TrashCanProject.Models
 {
     public class TrashCanSchedule
     {
+
+
         [Key]
         public int ID { get; set; }
         [Display(Name = "Pick Up Day")]
@@ -31,6 +37,6 @@ namespace TrashCanProject.Models
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
-      
+
     }
 }
