@@ -21,7 +21,7 @@ namespace TrashCanProject.Models
         public PickUpDays pickUpDays { get; set; }
 
         [Display(Name = "Extra Pick Up Date")]
-        public DateTime ExtraPickupDate { get; set; }
+        public DateTime? ExtraPickupDate { get; set; }
         [Display(Name = "Zip Code")]
         public int ZipCode { get; set; }
         public bool Confirmed { get; set; }

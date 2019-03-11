@@ -48,6 +48,16 @@ namespace TrashCanProject.Controllers
         {
             var schedule = context.trashCanSchedules.Find(id);
             var customerFound = context.customers.Where(e => e.CustomerId == schedule.CustomerId).SingleOrDefault();
+    
+                //var address = "Stavanger, Norway";
+
+                //var locationService = new GoogleLocationService();
+                //var point = locationService.GetLatLongFromAddress(address);
+
+                //var latitude = point.Latitude;
+                //var longitude = point.Longitude;
+
+                // Save lat/long values to DB...
 
             return View(customerFound);
         }

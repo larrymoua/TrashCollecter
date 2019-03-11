@@ -142,31 +142,27 @@ namespace TrashCanProject.Controllers
                     //Ends Here 
                     if (model.UserRoles == "Employee")
                     {               
-                        var employee = new Employee { ApplicationUserId = user.Id , FirstName = model.FirstName, LastName = model.LastName, Address = model.Address, State = model.State, ZipCode = model.ZipCode};
+                        var employee = new Employee { ApplicationUserId = user.Id , FirstName = model.FirstName, LastName = model.LastName, Address = model.Address, State = model.State, ZipCode = model.ZipCode};                   
                         context.employees.Add(employee);
                         context.SaveChanges();
-                        var CurrentUser = User.Identity.GetUserId();
-
-                        var employeeFound = context.employees.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
-                        return RedirectToAction("TrashCanSchedules", "Employee", new { id = employeeFound.EmployeeId });
+                        return RedirectToAction("Index", "Home");
                         }
                     else if (model.UserRoles == "Customer")
                     {
-                        var customer = new Customer { ApplicationUserId = user.Id, FirstName = model.FirstName, LastName = model.LastName, Address = model.Address, State = model.State, ZipCode = model.ZipCode };
+                        var customer = new Customer { ApplicationUserId = user.Id, FirstName = model.FirstName, LastName = model.LastName, Address = model.Address, State = model.State, ZipCode = model.ZipCode };                  
                         context.customers.Add(customer);
                         context.SaveChanges();
                         var CurrentUser = User.Identity.GetUserId();
-
-                        var customerFound = context.customers.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
-                        return RedirectToAction("CustomerTrashCanSchedule", "Customer", new { id = customerFound.CustomerId });
-                    }
-          
+                        customer = context.customers.Where(c => c.ApplicationUserId == CurrentUser).SingleOrDefault();
+                        var pickupschedule = new TrashCanSchedule { CustomerId = customer.CustomerId, ZipCode = customer.ZipCode, pickUpDays = 0 };
+                        context.SaveChanges();
+                        return RedirectToAction("Index", "Home");
+                    }                                                
                 }
-                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
                 AddErrors(result);
             }
 
-
+            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
             // If we got this far, something failed, redisplay form   
             return View(model);
         }

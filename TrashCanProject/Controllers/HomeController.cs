@@ -20,6 +20,8 @@ namespace TrashCanProject.Controllers
         {
             var CurrentUser = User.Identity.GetUserId();
 
+            bool result = User.IsInRole("Customer");
+    
             if (User.IsInRole("Employee"))
             {
                 var employeeFound = context.employees.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
