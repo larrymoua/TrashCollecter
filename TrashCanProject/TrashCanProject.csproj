@@ -235,6 +235,10 @@
     <Compile Include="Migrations\201903072126015_test2.Designer.cs">
       <DependentUpon>201903072126015_test2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903112351322_updatedd.cs" />
+    <Compile Include="Migrations\201903112351322_updatedd.Designer.cs">
+      <DependentUpon>201903112351322_updatedd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -316,6 +320,7 @@
     <Content Include="Views\Customer\Billing.cshtml" />
     <Content Include="Views\Employee\Details.cshtml" />
     <Content Include="Views\Employee\Filter.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -373,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903072126015_test2.resx">
       <DependentUpon>201903072126015_test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903112351322_updatedd.resx">
+      <DependentUpon>201903112351322_updatedd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

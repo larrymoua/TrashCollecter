@@ -152,10 +152,6 @@ namespace TrashCanProject.Controllers
                         var customer = new Customer { ApplicationUserId = user.Id, FirstName = model.FirstName, LastName = model.LastName, Address = model.Address, State = model.State, ZipCode = model.ZipCode };                  
                         context.customers.Add(customer);
                         context.SaveChanges();
-                        var CurrentUser = User.Identity.GetUserId();
-                        customer = context.customers.Where(c => c.ApplicationUserId == CurrentUser).SingleOrDefault();
-                        var pickupschedule = new TrashCanSchedule { CustomerId = customer.CustomerId, ZipCode = customer.ZipCode, pickUpDays = 0 };
-                        context.SaveChanges();
                         return RedirectToAction("Index", "Home");
                     }                                                
                 }

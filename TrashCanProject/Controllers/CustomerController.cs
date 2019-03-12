@@ -39,13 +39,19 @@ namespace TrashCanProject.Controllers
 
         // POST: Customer/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(TrashCanSchedule trashCanSchedule)
         {
+            var CurrentUser = User.Identity.GetUserId();
             try
             {
-                // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
+                var customerFound = context.customers.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();                
+                var pickupschedule = new TrashCanSchedule { CustomerId = customerFound.CustomerId, ZipCode = customerFound.ZipCode, pickUpDays = trashCanSchedule.pickUpDays, StartSuspend = trashCanSchedule.StartSuspend, EndSuspend = trashCanSchedule.EndSuspend };
+                context.trashCanSchedules.Add(pickupschedule);
+                context.SaveChanges();
+
+
+                return RedirectToAction("CustomerTrashCanSchedule", new { id = customerFound.CustomerId });
             }
             catch
             {

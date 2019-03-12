@@ -18,9 +18,8 @@ namespace TrashCanProject.Controllers
         }
         public ActionResult Index()
         {
-            var CurrentUser = User.Identity.GetUserId();
 
-            bool result = User.IsInRole("Customer");
+            var CurrentUser = User.Identity.GetUserId();
     
             if (User.IsInRole("Employee"))
             {
@@ -29,7 +28,8 @@ namespace TrashCanProject.Controllers
             }
             else if (User.IsInRole("Customer"))
             {
-                var customerFound = context.customers.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();     
+                var customerFound = context.customers.Where(e => e.ApplicationUserId == CurrentUser).SingleOrDefault();
+                var checkCustomer = context.trashCanSchedules.Where(c => c.CustomerId == customerFound.CustomerId);
                 return RedirectToAction("CustomerTrashCanSchedule", "Customer", new { id = customerFound.CustomerId });
             }
 

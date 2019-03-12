@@ -28,8 +28,8 @@ namespace TrashCanProject.Controllers
 
                 });
             ViewBag.ListData = typeList;
-
-            return View(context.trashCanSchedules.Where(t => t.ZipCode == employeeFound.ZipCode));
+            string dayofweek = System.DateTime.Now.DayOfWeek.ToString();
+            return View(context.trashCanSchedules.Where(t => t.ZipCode == employeeFound.ZipCode && t.pickUpDays.ToString() == dayofweek));
         }
         public ActionResult Filter(string id)
         {

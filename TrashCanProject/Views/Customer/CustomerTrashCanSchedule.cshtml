@@ -7,7 +7,7 @@
 <h2>My TrashCan Schedule</h2>
 
 <p>
-  
+    @Html.ActionLink("Create", "Create")
 </p>
 <table class="table">
     <tr>
@@ -64,6 +64,7 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
             @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+
         </td>
     </tr>
     }
